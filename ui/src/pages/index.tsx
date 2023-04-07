@@ -13,7 +13,7 @@ import { saveAs } from 'file-saver'
 const getSavedImageString = () => localStorage.getItem('image')
 
 const Home = () => {
-  const [savedImage, setSavedImage] = useState<null | string>(null)
+  const [savedImage, setSavedImage] = useState<null | string>(null);
   const [params, setParams] = useState<Txt2ImageParams>(startTxt2ImageParams)
   const [create, event] = useText2imgMutation()
 
@@ -24,7 +24,7 @@ const Home = () => {
   useEffect(() => {
     if (event.data) {
       localStorage.setItem('image', event.data)
-      setSavedImage(event.data as string)
+      setSavedImage(`data:image/png;base64,${event.data}`);
     }
   }, [event.data])
 
@@ -53,7 +53,7 @@ const Home = () => {
               sx={{ width: '100%', height: '100%', p: 2 }}
             >
               <img
-                src={`data:image/png;base64,${savedImage}`}
+                src={`${savedImage}`}
                 alt='image'
                 style={{
                   maxHeight: '100%',
