@@ -78,7 +78,7 @@ export const Editor = React.forwardRef<TuiImageEditor | null, tuiImageEditor.IOp
                 <Button
                     onClick={handleClick}
                 >
-                    Перенести
+                    Move to img2img
                 </Button>
             </>
         )
