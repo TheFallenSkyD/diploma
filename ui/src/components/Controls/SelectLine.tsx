@@ -38,7 +38,7 @@ const SelectLine = ({
           type='number'
           value={value}
           InputProps={{
-            inputProps: { min: '0', max: String(max), step: '1' },
+            inputProps: { min: '0', max: String(max), step: '5' },
           }}
         />
       </Grid>

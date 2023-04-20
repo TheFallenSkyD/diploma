@@ -9,11 +9,12 @@ import { b64toBlob } from '@/utils'
 import { Button, Grid, Paper, TextareaAutosize } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { saveAs } from 'file-saver'
+import Image from "next/image";
 
 const getSavedImageString = () => localStorage.getItem('image')
 
 const Home = () => {
-  const [savedImage, setSavedImage] = useState<null | string>(null);
+  const [savedImage, setSavedImage] = useState<string>('/default.png');
   const [params, setParams] = useState<Txt2ImageParams>(startTxt2ImageParams)
   const [create, event] = useText2imgMutation()
 
@@ -51,15 +52,13 @@ const Home = () => {
             <Paper
               variant='outlined'
               sx={{ width: '100%', height: '100%', p: 2 }}
-            >
-              <img
-                src={`${savedImage}`}
-                alt='image'
-                style={{
-                  maxHeight: '100%',
-                  maxWidth: '100%',
-                }}
-              />
+            >{savedImage &&
+              <Image
+                src={savedImage}
+                alt=''
+                height={'100%'}
+                width={'100%'}
+              />}
             </Paper>
           </Grid>
           <Grid item xs={6}>
@@ -110,7 +109,7 @@ const Home = () => {
               value={params.prompt}
               onChange={(e) => onParamsChange({ prompt: e.target.value })}
               placeholder='Prompt...'
-              style={{ width: '100%' }}
+              style={{ width: '100%', resize: "none" }}
             />
           </Grid>
           <Grid item xs={12}>
@@ -121,7 +120,7 @@ const Home = () => {
                 onParamsChange({ negative_prompt: e.target.value })
               }
               placeholder='Negative prompt...'
-              style={{ width: '100%' }}
+              style={{ width: '100%', resize: "none" }}
             />
           </Grid>
         </Grid>
