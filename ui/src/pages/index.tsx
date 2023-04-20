@@ -105,23 +105,19 @@ const Home = () => {
         <Grid container sx={{ my: 2 }}>
           <Grid item xs={12}>
             <TextareaAutosize
-              minRows={5}
-              value={params.prompt}
-              onChange={(e) => onParamsChange({ prompt: e.target.value })}
-              placeholder='Prompt...'
-              style={{ width: '100%', resize: "none" }}
-            />
+                minRows={5}
+                value={params.prompt}
+                onChange={(e) => onParamsChange({prompt: e.target.value})}
+                placeholder='Prompt...'
+                style={{width: '100%', resize: "none"}} onResize={undefined} onResizeCapture={undefined}            />
           </Grid>
           <Grid item xs={12}>
             <TextareaAutosize
-              minRows={5}
-              value={params.negative_prompt}
-              onChange={(e) =>
-                onParamsChange({ negative_prompt: e.target.value })
-              }
-              placeholder='Negative prompt...'
-              style={{ width: '100%', resize: "none" }}
-            />
+                minRows={5}
+                value={params.negative_prompt}
+                onChange={(e) => onParamsChange({negative_prompt: e.target.value})}
+                placeholder='Negative prompt...'
+                style={{width: '100%', resize: "none"}} onResize={undefined} onResizeCapture={undefined}            />
           </Grid>
         </Grid>
         <Controls params={params} onParamsChange={onParamsChange} />
