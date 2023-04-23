@@ -9,7 +9,6 @@ import {b64toBlob} from '@/utils'
 import {Button, Grid, Paper, TextareaAutosize} from '@mui/material'
 import {useEffect, useState} from 'react'
 import {saveAs} from 'file-saver'
-import Image from "next/image";
 
 const getSavedImageString = () => localStorage.getItem('image')
 
@@ -110,7 +109,13 @@ const Home = () => {
                             value={params.prompt}
                             onChange={(e) => onParamsChange({prompt: e.target.value})}
                             placeholder='Prompt...'
-                            style={{width: '100%', resize: "none"}} onResize={undefined} onResizeCapture={undefined}/>
+                            style={{
+                                width: '100%',
+                                resize: "none",
+                                borderRadius: "5px",
+                                border: "none",
+                                backgroundColor: "rgb(60, 92, 120)"
+                            }} onResize={undefined} onResizeCapture={undefined}/>
                     </Grid>
                     <Grid item xs={12}>
                         <TextareaAutosize
@@ -118,7 +123,13 @@ const Home = () => {
                             value={params.negative_prompt}
                             onChange={(e) => onParamsChange({negative_prompt: e.target.value})}
                             placeholder='Negative prompt...'
-                            style={{width: '100%', resize: "none"}} onResize={undefined} onResizeCapture={undefined}/>
+                            style={{
+                                width: '100%',
+                                resize: "none",
+                                borderRadius: "5px",
+                                border: "none",
+                                backgroundColor: "rgb(60, 92, 120)"
+                            }} onResize={undefined} onResizeCapture={undefined}/>
                     </Grid>
                 </Grid>
                 <Controls params={params} onParamsChange={onParamsChange}/>
