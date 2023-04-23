@@ -19,8 +19,6 @@ const MyComponent = () => {
         setImage(localStorage.getItem("image") ?? '');
     }, [])
 
-    console.log(image);
-
     return (
         <>
             <ImageEditorDynamic
@@ -30,10 +28,11 @@ const MyComponent = () => {
                         name: 'SampleImage',
                     },
                     theme: myTheme,
-                    menu:  ['resize', 'crop', 'flip', 'rotate', 'draw'],
+                    menu: ['resize', 'crop', 'flip', 'rotate', 'draw'],
                     initMenu: 'filter',
                     menuBarPosition: 'bottom',
                     uiSize: {
+                        width: '100%',
                         height: 'calc(100vh - 160px)',
                     }
                 }}

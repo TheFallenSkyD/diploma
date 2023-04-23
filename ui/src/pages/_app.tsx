@@ -1,6 +1,6 @@
 import '../../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { ThemeProvider, createTheme, useTheme } from '@mui/material/styles'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
 import { Provider } from 'react-redux'
 
 import '@fontsource/roboto/300.css'
